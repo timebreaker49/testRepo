@@ -107,6 +107,8 @@ var spotifyAuthenticated = function() {
 
 if (_token) {
 
+  console.log(albumURI);
+
   $('#spotify').empty();
   localStorage.setItem('token', _token);
   console.log(_token);
