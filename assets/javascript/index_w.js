@@ -1,5 +1,5 @@
 title = "";
-let albumURI = "";
+albumURI = "";
 
 $('#player').hide();
 
@@ -84,23 +84,6 @@ if (!_token) {
 }
 
 })
-
-
-
-// var spotifyPlayer = function () {
-
-//    var player = $('iframe');
-//    player.attr('width', 300);
-//    player.attr('height', 380);
-//    player.attr('frameborder', 0);
-//    player.attr('allowtransparency', true);
-//    player.attr('allow', 'encrypted-media');
-//    player.attr('src', 'https://open.spotify.com/embed?uri=' + albumURI);
-
-//    $('#spotify').append(spotifyPlayer);
-// }
-
-// spotifyPlayer();
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
 var spotifyAuthenticated = function() {
