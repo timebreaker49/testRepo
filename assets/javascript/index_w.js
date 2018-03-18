@@ -82,15 +82,21 @@ if (!_token) {
 
 })
 
+
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
+var spotifyAuthenticated = function() {
+
 if (_token) {
   $('#spotify').empty();
   localStorage.setItem('token', _token);
   conosle.log(_token);
   albumSearch();
+  
 }
 
+}
 
+spotifyAuthenticated();
 //To do
 
 //1. need to add logic to search for token. If token exists, hide button
