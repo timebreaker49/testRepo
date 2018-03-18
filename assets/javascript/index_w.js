@@ -1,5 +1,4 @@
 title = "";
-albumURI = "";
 
 $('#player').hide();
 
