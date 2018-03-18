@@ -87,11 +87,12 @@ if (!_token) {
 var spotifyAuthenticated = function() {
 
 if (_token) {
+
   $('#spotify').empty();
   localStorage.setItem('token', _token);
-  conosle.log(_token);
+  console.log(_token);
   albumSearch();
-  
+
 }
 
 }
