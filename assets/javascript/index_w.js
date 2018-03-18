@@ -1,6 +1,8 @@
 title = "";
 let albumURI = "";
 
+$('#player').hide();
+
 // Get the hash of the url
 const hash = window.location.hash
 .substring(1)
@@ -83,17 +85,22 @@ if (!_token) {
 
 })
 
-var spotifyPlayer = function () {
-   var player = $('<iframe>');
-   player.attr('width', 300);
-   player.attr('height', 380);
-   player.attr('frameborder', 0);
-   player.attr('allowtransparency', true);
-   player.attr('allow', 'encrypted-media');
-   player.attr('src', 'https://open.spotify.com/embed?uri=' + albumURI);
 
-   $('#spotify').append(spotifyPlayer);
-}
+
+// var spotifyPlayer = function () {
+
+//    var player = $('iframe');
+//    player.attr('width', 300);
+//    player.attr('height', 380);
+//    player.attr('frameborder', 0);
+//    player.attr('allowtransparency', true);
+//    player.attr('allow', 'encrypted-media');
+//    player.attr('src', 'https://open.spotify.com/embed?uri=' + albumURI);
+
+//    $('#spotify').append(spotifyPlayer);
+// }
+
+// spotifyPlayer();
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
 var spotifyAuthenticated = function() {
@@ -104,7 +111,10 @@ if (_token) {
   localStorage.setItem('token', _token);
   console.log(_token);
   albumSearch();
-  spotifyPlayer();
+  $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + albumURI);
+  $('#player').show();
+  //use this to change the src of the spotify player -- place 
+  // spotifyPlayer();
 }
 }
 
