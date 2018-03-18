@@ -20,7 +20,7 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '20db032cf5354ecc98d3c6f236ec5b28';
-const redirectUri = 'file:///C:/Users/wayne/Documents/coding_boot_camp/hw/hw8/group-project1/index.html';
+const redirectUri = 'https://timebreaker49.github.io/testRepo/';
 const scopes = [
   'user-top-read'
 ];
