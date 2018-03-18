@@ -15,6 +15,7 @@ window.location.hash = '';
 
 // Set token
 let _token = hash.access_token;
+localStorage.setItem('token', _token);
 
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 
@@ -83,6 +84,7 @@ if (!_token) {
 
 var spotifyAuthenticated = function() {
 
+conosle.log(_token);
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
 if (_token) {
   $('#spotify').empty();
