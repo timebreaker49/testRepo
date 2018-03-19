@@ -1,4 +1,5 @@
 title = "";
+let albumURI = "";
 
 $('#player').hide();
 
@@ -42,7 +43,7 @@ $.ajax({
       var data = response;
       
       var albumURI = response.albums.items["0"].uri;
-      console.log(albumURI);
+      localStorage.setItem('URL', albumURI);
       //accesses the album's uri for the web player;
 
 // NEXT STEPS: figure out how to generate a spotify web player (dynamically?) using the uri;        
@@ -89,13 +90,14 @@ var spotifyAuthenticated = function() {
 
 if (_token) {
 
-  console.log(albumURI);
+  var uri = localStorage.getItem('URI');
+  console.log(uri);
 
   $('#spotify').empty();
   localStorage.setItem('token', _token);
   console.log(_token);
   albumSearch();
-  $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + albumURI);
+  $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
   $('#player').show();
   //use this to change the src of the spotify player -- place 
   // spotifyPlayer();
