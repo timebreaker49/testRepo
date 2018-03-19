@@ -29,7 +29,7 @@ const scopes = [
   'user-top-read'
 ];
 
-
+spotifyAuthenticated();
 
 
 var albumSearch = function(title) {
