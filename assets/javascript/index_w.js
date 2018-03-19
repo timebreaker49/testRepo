@@ -70,15 +70,10 @@ $('form').on('submit', function(e) {
 
   $('#spotify').empty();
 
-
-  if (!_token) {
   var spotifyButton = $('<button>');
   spotifyButton.text('Log into Spotify');
   spotifyButton.addClass('waves-effect waves-dark #e0e0e0 btn grey lighten-2 black-text text-darken-2');
   $('#spotify').append(spotifyButton);
-  } else {
-  spotifyAuthenticated();
-  }
 
   localStorage.clear();
   localStorage.setItem('movie', title);
@@ -111,7 +106,7 @@ if (_token) {
 }
 }
 
-
+// have a funtion called init that looks for the uri or token variables. once you go thru the initial flow, the redirect back can check for the token and repopulate 
 //To do
 
 //1. need to add logic to search for token. If token exists, hide button
