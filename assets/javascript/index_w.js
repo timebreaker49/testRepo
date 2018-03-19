@@ -68,10 +68,17 @@ $('form').on('submit', function(e) {
 
 	albumSearch(title);
 
+  $('#spotify').empty();
+
+
+  if (!_token) {
   var spotifyButton = $('<button>');
   spotifyButton.text('Log into Spotify');
   spotifyButton.addClass('waves-effect waves-dark #e0e0e0 btn grey lighten-2 black-text text-darken-2');
   $('#spotify').append(spotifyButton);
+  } else {
+  spotifyAuthenticated();
+  }
 
   localStorage.clear();
   localStorage.setItem('movie', title);
@@ -84,7 +91,6 @@ $('#spotify').on('click', function() {
 if (!_token) {
   window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 }
-spotifyAuthenticated();
 })
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
