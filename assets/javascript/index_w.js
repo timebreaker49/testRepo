@@ -3,6 +3,9 @@ var albumURI = "";
 
 $('#player').hide();
 
+var uri = JSON.parse(localStorage.getItem('URI'));
+console.log(uri);
+
 // Get the hash of the url
 const hash = window.location.hash
 .substring(1)
@@ -88,9 +91,6 @@ if (!_token) {
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
 var spotifyAuthenticated = function() {
-
-  var uri = JSON.parse(localStorage.getItem('URI'));
-  console.log(uri);
 
 if (_token) {
 
