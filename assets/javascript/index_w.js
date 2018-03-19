@@ -3,8 +3,6 @@ var albumURI = "";
 
 $('#player').hide();
 
-
-
 // Get the hash of the url
 const hash = window.location.hash
 .substring(1)
