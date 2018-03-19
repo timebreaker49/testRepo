@@ -29,7 +29,6 @@ const scopes = [
   'user-top-read'
 ];
 
-spotifyAuthenticated();
 
 
 var albumSearch = function(title) {
@@ -77,6 +76,7 @@ $('form').on('submit', function(e) {
 
   localStorage.clear();
   localStorage.setItem('movie', title);
+  spotifyAuthenticated();
 
 });
 
