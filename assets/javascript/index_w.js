@@ -46,7 +46,7 @@ $.ajax({
       
       var albumURI = response.albums.items["0"].uri;
       console.log(albumURI);
-      localStorage.setItem('URI', JSON.stringify(albumURI));
+      localStorage.setItem('URI', albumURI);
       console.log(localStorage.URI);
       //accesses the album's uri for the web player;
 
@@ -86,7 +86,7 @@ $('#spotify').on('click', function() {
 if (!_token) {
   window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 }
-
+spotifyAuthenticated();
 })
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
@@ -98,7 +98,7 @@ if (_token) {
   localStorage.setItem('token', _token);
   console.log(_token);
   albumSearch();
-  var uri = JSON.parse(localStorage.getItem('URI'));
+  var uri = localStorage.getItem('URI');
   console.log(uri);
   $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
   $('#player').show();
@@ -107,7 +107,7 @@ if (_token) {
 }
 }
 
-spotifyAuthenticated();
+
 //To do
 
 //1. need to add logic to search for token. If token exists, hide button
