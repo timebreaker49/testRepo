@@ -3,8 +3,7 @@ var albumURI = "";
 
 $('#player').hide();
 
-var uri = JSON.parse(localStorage.getItem('URI'));
-console.log(uri);
+
 
 // Get the hash of the url
 const hash = window.location.hash
@@ -99,6 +98,8 @@ if (_token) {
   localStorage.setItem('token', _token);
   console.log(_token);
   albumSearch();
+  var uri = JSON.parse(localStorage.getItem('URI'));
+  console.log(uri);
   $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
   $('#player').show();
   //use this to change the src of the spotify player -- place 
