@@ -78,7 +78,7 @@ $('form').on('submit', function(e) {
 
   // localStorage.clear();
   localStorage.setItem('movie', title);
-  spotifyAuthenticated();
+  
 });
 
 
@@ -87,7 +87,7 @@ $('#spotify').on('click', function() {
 if (!_token) {
   window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 }
-
+spotifyAuthenticated();
 })
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
