@@ -44,7 +44,7 @@ $.ajax({
       
       var albumURI = response.albums.items["0"].uri;
       console.log(albumURI);
-      localStorage.setItem('URI', albumURI);
+      localStorage.setItem('URI', JSON.stringify(albumURI));
       //accesses the album's uri for the web player;
 
 // NEXT STEPS: figure out how to generate a spotify web player (dynamically?) using the uri;        
