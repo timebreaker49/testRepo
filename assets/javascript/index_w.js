@@ -43,7 +43,7 @@ $.ajax({
       var data = response;
       
       var albumURI = response.albums.items["0"].uri;
-      localStorage.setItem('URI', albumURI);
+      localStorage.setItem('URI', JSON.stringify(albumURI));
       //accesses the album's uri for the web player;
 
 // NEXT STEPS: figure out how to generate a spotify web player (dynamically?) using the uri;        
@@ -90,7 +90,7 @@ var spotifyAuthenticated = function() {
 
 if (_token) {
 
-  var uri = localStorage.getItem('URI');
+  var uri = JSON.parse(localStorage.getItem('URI'));
   console.log(uri);
 
   $('#spotify').empty();
