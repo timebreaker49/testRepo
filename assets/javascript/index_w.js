@@ -43,6 +43,7 @@ $.ajax({
       var data = response;
       
       var albumURI = response.albums.items["0"].uri;
+      console.log(albumURI);
       localStorage.setItem('URI', JSON.stringify(albumURI));
       //accesses the album's uri for the web player;
 
