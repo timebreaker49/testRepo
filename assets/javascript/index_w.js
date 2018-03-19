@@ -3,6 +3,9 @@ var albumURI = "";
 
 $('#player').hide();
 
+// var uri = JSON.parse(localStorage.getItem('URI'));
+// console.log(uri);
+
 // Get the hash of the url
 const hash = window.location.hash
 .substring(1)
@@ -28,6 +31,7 @@ const redirectUri = 'https://timebreaker49.github.io/testRepo/';
 const scopes = [
   'user-top-read'
 ];
+
 
 
 
@@ -58,26 +62,23 @@ $.ajax({
 
 $('form').on('submit', function(e) {
 
-	e.preventDefault();
+    e.preventDefault();
 
-	let title = $('#text').val().trim();
-	console.log(title);
+    let title = $('#text').val().trim();
+    console.log(title);
 
-	$('#text').val("");
+    $('#text').val("");
 
-	albumSearch(title);
-
-  $('#spotify').empty();
+    albumSearch(title);
 
   var spotifyButton = $('<button>');
   spotifyButton.text('Log into Spotify');
   spotifyButton.addClass('waves-effect waves-dark #e0e0e0 btn grey lighten-2 black-text text-darken-2');
   $('#spotify').append(spotifyButton);
 
-  localStorage.clear();
+  // localStorage.clear();
   localStorage.setItem('movie', title);
   spotifyAuthenticated();
-
 });
 
 
@@ -86,6 +87,7 @@ $('#spotify').on('click', function() {
 if (!_token) {
   window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 }
+
 })
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
@@ -106,7 +108,7 @@ if (_token) {
 }
 }
 
-// have a funtion called init that looks for the uri or token variables. once you go thru the initial flow, the redirect back can check for the token and repopulate 
+
 //To do
 
 //1. need to add logic to search for token. If token exists, hide button
@@ -115,4 +117,3 @@ if (_token) {
   // If there is no token, redirect to Spotify authorization
 // SCORETREK Javascript
 // >>>>>>> 1ae36e73c849092eb2e8b8d2eb870ea950e6ea38
-
