@@ -1,5 +1,5 @@
 title = "";
-let albumURI = "";
+let albumURI = ;
 
 $('#player').hide();
 
