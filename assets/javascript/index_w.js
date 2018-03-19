@@ -89,10 +89,10 @@ if (!_token) {
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
 var spotifyAuthenticated = function() {
 
-if (_token) {
-
   var uri = JSON.parse(localStorage.getItem('URI'));
   console.log(uri);
+
+if (_token) {
 
   $('#spotify').empty();
   localStorage.setItem('token', _token);
