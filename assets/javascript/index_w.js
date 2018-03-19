@@ -3,7 +3,7 @@ var albumURI = "";
 
 $('#player').hide();
 
-var uri = JSON.parse(localStorage.getItem(URI));
+var uri = JSON.parse(localStorage.getItem('URI'));
 console.log(uri);
 
 // Get the hash of the url
