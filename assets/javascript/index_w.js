@@ -64,7 +64,7 @@ $('#spotify').on('click', function() {
 if (!_token) {
   window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 }
-
+spotifyAuthenticated();
 })
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
@@ -75,12 +75,11 @@ if (_token) {
   $('#spotify').empty();
   localStorage.setItem('token', _token);
   console.log(_token);
+  albumSearch();
   var uri = localStorage.getItem('URI');
   console.log(uri);
   $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
   $('#player').show();
-  //use this to change the src of the spotify player -- place 
-  // spotifyPlayer();
 }
 }
 
@@ -102,13 +101,7 @@ $.ajax({
 }
 
 });
-spotifyAuthenticated();
-}
-//To do
 
-//1. need to add logic to search for token. If token exists, hide button
+}  
+
   
-
-  // If there is no token, redirect to Spotify authorization
-// SCORETREK Javascript
-// >>>>>>> 1ae36e73c849092eb2e8b8d2eb870ea950e6ea38
