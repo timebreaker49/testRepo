@@ -2,7 +2,7 @@ title = "";
 var albumURI = "";
 
 $(document).ready(function() {
-spotifyAuthenticated
+spotifyAuthenticated();
 });
 
 $('#player').hide();
