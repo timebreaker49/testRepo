@@ -99,10 +99,10 @@ $.ajax({
       localStorage.setItem('URI', albumURI);
       console.log(localStorage.URI);
       //accesses the album's uri for the web player;
-},
-spotifyAuthenticated();
-});
+}
 
+});
+spotifyAuthenticated();
 }
 //To do
 
