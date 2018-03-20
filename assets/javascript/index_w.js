@@ -36,34 +36,6 @@ const scopes = [
   'user-top-read'
 ];
 
-
-
-
-var albumSearch = function(title) {
-// Make a call using the token
-$.ajax({
-   url: 'https://api.spotify.com/v1/search?q=' + title + '&type=album&limit=1',
-   type: "GET",
-   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
-   success: function(response) { 
-  // // Do something with the returned data
-      var data = response;
-      
-      var albumURI = response.albums.items["0"].uri;
-      console.log(albumURI);
-      localStorage.setItem('URI', albumURI);
-      console.log(localStorage.URI);
-      //accesses the album's uri for the web player;
-
-// NEXT STEPS: figure out how to generate a spotify web player (dynamically?) using the uri;        
-
-       var theGoods = response;
-}
-
-});
-
-}
-
 $('form').on('submit', function(e) {
 
     e.preventDefault();
@@ -103,6 +75,7 @@ if (_token) {
   localStorage.setItem('token', _token);
   console.log(_token);
   albumSearch();
+
   var uri = localStorage.getItem('URI');
   console.log(uri);
   $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
@@ -112,7 +85,30 @@ if (_token) {
 }
 }
 
+var albumSearch = function(title) {
+// Make a call using the token
+$.ajax({
+   url: 'https://api.spotify.com/v1/search?q=' + title + '&type=album&limit=1',
+   type: "GET",
+   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
+   success: function(response) { 
+  // // Do something with the returned data
+      var data = response;
+      
+      var albumURI = response.albums.items["0"].uri;
+      console.log(albumURI);
+      localStorage.setItem('URI', albumURI);
+      console.log(localStorage.URI);
+      //accesses the album's uri for the web player;
 
+// NEXT STEPS: figure out how to generate a spotify web player (dynamically?) using the uri;        
+
+       var theGoods = response;
+}
+
+});
+
+}
 //To do
 
 //1. need to add logic to search for token. If token exists, hide button
