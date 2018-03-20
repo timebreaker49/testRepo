@@ -69,15 +69,15 @@ if (!_token) {
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
 var spotifyAuthenticated = function() {
 
+  albumSearch();
+  var uri = localStorage.getItem('URI');
+  console.log(uri);
+
 if (_token) {
 
   $('#spotify').empty();
   localStorage.setItem('token', _token);
   console.log(_token);
-  albumSearch();
-
-  var uri = localStorage.getItem('URI');
-  console.log(uri);
   $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
   $('#player').show();
   //use this to change the src of the spotify player -- place 
