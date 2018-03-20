@@ -3,7 +3,7 @@ var albumURI = "";
 
 $(document).ready(function() {
 albumSearch();
-spotifyAuthenticated();
+
 });
 
 $('#player').hide();
@@ -99,12 +99,8 @@ $.ajax({
       localStorage.setItem('URI', albumURI);
       console.log(localStorage.URI);
       //accesses the album's uri for the web player;
-
-// NEXT STEPS: figure out how to generate a spotify web player (dynamically?) using the uri;        
-
-       var theGoods = response;
 }
-
+spotifyAuthenticated();
 });
 
 }
