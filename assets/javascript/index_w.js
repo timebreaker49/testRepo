@@ -88,11 +88,10 @@ $('form').on('submit', function(e) {
 
     albumSearch(title);
 
-    var spotifyButton = $('<button>');
-    spotifyButton.text('Log into Spotify');
-    spotifyButton.addClass('waves-effect waves-dark #e0e0e0 btn grey lighten-2 black-text text-darken-2');
-    $('#spotify').append(spotifyButton);
-
+    var uri = localStorage.getItem('URI');
+    console.log(uri);
+    $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
+    $('#player').show();
     // localStorage.clear();
     localStorage.setItem('movie', title);
 
@@ -115,11 +114,8 @@ var spotifyAuthenticated = function() {
         $('#spotify').empty();
         localStorage.setItem('token', _token);
         console.log(_token);
-        albumSearch();
-        var uri = localStorage.getItem('URI');
-        console.log(uri);
-        $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
-        $('#player').show();
+
+
         //use this to change the src of the spotify player -- place 
         // spotifyPlayer();
     }
