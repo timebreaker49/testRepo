@@ -64,7 +64,7 @@ var albumSearch = function(title) {
 
             var albumURI = response.albums.items["0"].uri;
             console.log(albumURI);
-            localStorage.setItem('URI', JSON.stringify(albumURI));
+            localStorage.setItem('URI', (albumURI);
             console.log(localStorage.URI);
             //accesses the album's uri for the web player;
 
