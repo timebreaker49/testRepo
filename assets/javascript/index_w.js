@@ -64,7 +64,7 @@ var albumSearch = function(title) {
 
             var albumURI = response.albums.items["0"].uri;
             console.log(albumURI);
-            localStorage.setItem("URI", JSON.stringify(albumURI));
+            localStorage.setItem('URI', JSON.stringify(albumURI));
             console.log(localStorage.URI);
             //accesses the album's uri for the web player;
 
@@ -88,7 +88,7 @@ $('form').on('submit', function(e) {
 
     albumSearch(title);
 
-    var uri = localStorage.getItem(JSON.parse("URI"));
+    var uri = localStorage.getItem(JSON.parse('URI'));
     console.log(uri);
     $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
     $('#player').show();
