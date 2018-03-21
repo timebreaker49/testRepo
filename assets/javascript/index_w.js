@@ -88,7 +88,7 @@ $('form').on('submit', function(e) {
 
     albumSearch(title);
 
-    var uri = localStorage.getItem(JSON.parse('URI'));
+    var uri = localStorage.getItem('URI');
     console.log(uri);
     $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
     $('#player').show();
