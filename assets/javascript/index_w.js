@@ -67,10 +67,6 @@ var albumSearch = function(title) {
             localStorage.setItem('URI', (albumURI));
             console.log(localStorage.URI);
             //accesses the album's uri for the web player;
-
-            // NEXT STEPS: figure out how to generate a spotify web player (dynamically?) using the uri;        
-
-            var theGoods = response;
         }
 
     });
@@ -88,9 +84,7 @@ $('form').on('submit', function(e) {
 
     albumSearch(title);
 
-    var uri = localStorage.getItem('URI');
-    console.log(uri);
-    $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + uri);
+    $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + localStorage.getItem('URI'));
     $('#player').show();
     // localStorage.clear();
     localStorage.setItem('movie', title);
