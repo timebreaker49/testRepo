@@ -84,8 +84,11 @@ $('form').on('submit', function(e) {
 
     $('#text').val("");
 
+    if (!_token) {
+        alert('log into spotify for the full experience!');
+    } else {
     albumSearch(title);
-
+    }
     // localStorage.clear();
     localStorage.setItem('movie', title);
 
