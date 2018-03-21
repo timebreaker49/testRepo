@@ -65,7 +65,9 @@ var albumSearch = function(title) {
             var albumURI = response.albums.items["0"].uri;
             console.log(albumURI);
             localStorage.setItem('URI', (albumURI));
-            console.log(localStorage.URI);
+           
+            $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + albumURI);
+            $('#player').show();
             //accesses the album's uri for the web player;
         }
 
@@ -84,8 +86,6 @@ $('form').on('submit', function(e) {
 
     albumSearch(title);
 
-    $('iframe').attr('src', 'https://open.spotify.com/embed?uri=' + localStorage.getItem('URI'));
-    $('#player').show();
     // localStorage.clear();
     localStorage.setItem('movie', title);
 
