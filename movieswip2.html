@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Movie Search</h1>
+
+    <!-- Movies will Get Dumped Dere -->
+    <div id="movies-view"></div>
+
+    
+
+    <form id="movie-form">
+      <label for="movie-input">Add a Movie Bro</label>
+      <input type="text" id="movie-input">
+      <br>
+
+      <!-- Button triggers new movie to be added -->
+      <button id="add-movie" type="submit" onclick="someFunction()">Add A Movie Bro</button>
+      
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+  
+
+      function someFunction(){
+        
+     
+
+      // This function handles events where a movie button is clicked
+      
+        event.preventDefault();
+        // This line grabs the input from the textbox
+        var movie = $("#movie-input").val().trim();
+      
+
+        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=25d074b4";
+
+        // Creating an AJAX call for the specific movie button being clicked
+            $.ajax({
+            url: queryURL,
+            method: "GET"
+            }).then(function(response) {
+                console.log(response);
+           
+                var movieDiv = $("<div class='movie'>");
+
+                // Storing the rating data
+                var rating = response.Rated;
+
+                // Creating an element to have the rating displayed
+                var pOne = $("<p>").text("Rating: " + rating);
+
+                // Displaying the rating
+                movieDiv.append(pOne);
+
+                // Storing the release year
+                var released = response.Released;
+
+                // Creating an element to hold the release year
+                var pTwo = $("<p>").text("Released: " + released);
+
+                // Displaying the release year
+                movieDiv.append(pTwo);
+
+                // Storing the plot
+                var plot = response.Plot;
+
+                // Creating an element to hold the plot
+                var pThree = $("<p>").text("Plot: " + plot);
+
+                // Appending the plot
+                movieDiv.append(pThree);
+
+                // Retrieving the URL for the image
+                var imgURL = response.Poster;
+
+                // Creating an element to hold the image
+                var image = $("<img>").attr("src", imgURL);
+
+                // Appending the image
+                movieDiv.append(image);
+
+                // Putting the entire movie above the previous movies
+                $("#movies-view").html(movieDiv);
+           
+           
+           
+           
+           
+           
+            });
+
+       };
+    </script>
+  </div>
+</body>
+
+</html>

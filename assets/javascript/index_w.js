@@ -22,7 +22,6 @@ $(document).ready(function() {
 })
 
 
-
 // Get the hash of the url
 const hash = window.location.hash
     .substring(1)
@@ -49,11 +48,39 @@ const scopes = [
     'user-top-read'
 ];
 
+var someFunction = function(title){
+    console.log('someFunction is running');    
 
+        // let movie = $('#text').val().trim();
+        // console.log(movie);
+        let queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
+            $.ajax({
+            url: queryURL,
+            method: "GET"
+            }).then(function(response) {
+                console.log(response);        
+                var movieDiv = $("<div class='movie'>");
+                var rating = response.Rated;
+                var pOne = $("<p>").text("Rating: " + rating);
+                movieDiv.append(pOne);
+                var released = response.Released;
+                var pTwo = $("<p>").text("Released: " + released);
+                movieDiv.append(pTwo);
+                var plot = response.Plot;
+                var pThree = $("<p>").text("Plot: " + plot);
+                movieDiv.append(pThree);
+                var imgURL = response.Poster;
+                var image = $("<img>").attr("src", imgURL);
+                movieDiv.append(image);
+                $("#movies-view").html(movieDiv);           
+            });
 
+       };
 
 var albumSearch = function(title) {
+    console.log('albumSearch is running')
     // Make a call using the token
+     if (token) {
     $.ajax({
         url: 'https://api.spotify.com/v1/search?q=' + title + '&type=album&limit=1',
         type: "GET",
@@ -72,8 +99,10 @@ var albumSearch = function(title) {
         }
 
     });
+} else {console.log('nope')}
 
 }
+
 
 $('form').on('submit', function(e) {
 
@@ -84,11 +113,9 @@ $('form').on('submit', function(e) {
 
     $('#text').val("");
 
-    if (!_token) {
-        alert('log into spotify for the full experience!');
-    } else {
+    someFunction(title);     
     albumSearch(title);
-    }
+
     // localStorage.clear();
     localStorage.setItem('movie', title);
 
@@ -100,7 +127,6 @@ $('#spotify').on('click', function() {
     if (!_token) {
         window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
     }
-    // spotifyAuthenticated();
 })
 
 //once the user has authenticated, verified by checking for an auth token, hide the button and search for the album
@@ -111,9 +137,6 @@ var spotifyAuthenticated = function() {
         $('#spotify').empty();
         localStorage.setItem('token', _token);
         console.log(_token);
-
-
-        //use this to change the src of the spotify player -- place 
-        // spotifyPlayer();
     }
 }
+
