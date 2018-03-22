@@ -80,7 +80,7 @@ var someFunction = function(title){
 var albumSearch = function(title) {
     console.log('albumSearch is running')
     // Make a call using the token
-     if (token) {
+     if (_token) {
     $.ajax({
         url: 'https://api.spotify.com/v1/search?q=' + title + '&type=album&limit=1',
         type: "GET",
