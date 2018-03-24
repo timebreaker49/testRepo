@@ -24,7 +24,7 @@ h1 {
 	text-shadow:-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 	font-size:100px;
 	text-align:center;
-	padding-top:150px;
+	padding-top:100px;
 }
 
 form {
@@ -39,4 +39,21 @@ form {
 
 .submitbutton {
 	color:lightgray;
+}
+
+#movies-view {
+	color:white;
+}
+
+img {
+	float:left;
+	padding-right:15px;
+}
+
+#spotify {
+	text-align:center;
+}
+.spotifyButton {
+	clear:both;
+	height:80px;
 }

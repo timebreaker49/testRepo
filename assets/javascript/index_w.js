@@ -1,6 +1,7 @@
 title = "";
 var albumURI = "";
 
+$('.searchbarrow').hide();
 $('#player').hide();
 
 // var uri = JSON.parse(localStorage.getItem('URI'));
@@ -12,8 +13,8 @@ $(document).ready(function() {
        
     var spotifyButton = $('<button>');
     spotifyButton.text('Log into Spotify');
-    spotifyButton.addClass('waves-effect waves-dark #e0e0e0 btn grey lighten-2 black-text text-darken-2');
-    $('#spotify').append(spotifyButton);
+    spotifyButton.addClass('waves-effect waves-dark #e0e0e0 btn grey lighten-2 black-text text-darken-2 spotifyButton');
+    $('#spotify').append(spotifyButton).fadeIn(800).fadeOut(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeOut(800).fadeIn(800);
         // window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
     }
 
@@ -53,7 +54,7 @@ var someFunction = function(title){
 
         // let movie = $('#text').val().trim();
         // console.log(movie);
-        let queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
+        let queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=full&apikey=trilogy";
             $.ajax({
             url: queryURL,
             method: "GET"
@@ -61,6 +62,9 @@ var someFunction = function(title){
                 console.log(response);        
                 var movieDiv = $("<div class='movie'>");
                 var rating = response.Rated;
+                var imgURL = response.Poster;
+                var image = $("<img>").attr("src", imgURL);
+                movieDiv.append(image);
                 var pOne = $("<p>").text("Rating: " + rating);
                 movieDiv.append(pOne);
                 var released = response.Released;
@@ -69,9 +73,6 @@ var someFunction = function(title){
                 var plot = response.Plot;
                 var pThree = $("<p>").text("Plot: " + plot);
                 movieDiv.append(pThree);
-                var imgURL = response.Poster;
-                var image = $("<img>").attr("src", imgURL);
-                movieDiv.append(image);
                 $("#movies-view").html(movieDiv);           
             });
 
@@ -108,6 +109,7 @@ $('form').on('submit', function(e) {
 
     e.preventDefault();
 
+    $('.titlerow').slideUp(500);
     let title = $('#text').val().trim();
     console.log(title);
 
