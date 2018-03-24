@@ -57,10 +57,10 @@ img {
 	height:80px;
 }
 
-/*@media (max-width:724px) {
+@media (max-width:724px) {
 	h1 {
 		font-size:40px;
 		margin-right:0px;
 		margin-left:0px;
 	}
-}*/
+}
