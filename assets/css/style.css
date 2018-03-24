@@ -51,6 +51,7 @@ img {
 }
 
 #spotify {
+	clear:both;
 	text-align:center;
 }
 .spotifyButton {
