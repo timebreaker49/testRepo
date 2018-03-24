@@ -1,7 +1,7 @@
 title = "";
 var albumURI = "";
 
-//$('.searchbarrow').hide();
+$('.searchbarrow').hide();
 $('#player').hide();
 
 // var uri = JSON.parse(localStorage.getItem('URI'));
@@ -140,7 +140,7 @@ var spotifyAuthenticated = function() {
         localStorage.setItem('token', _token);
         console.log(_token);
 
-$('searchbarrow').show();
+$('.searchbarrow').show();
     }
 }
 
