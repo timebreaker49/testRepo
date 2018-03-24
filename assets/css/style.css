@@ -52,9 +52,9 @@ img {
 
 #spotify {
 	text-align:center;
-	clear:both;
 }
 .spotifyButton {
+	clear:both;
 	height:80px;
 }
 
