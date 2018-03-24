@@ -52,6 +52,7 @@ img {
 
 #spotify {
 	text-align:center;
+	clear:both;
 }
 .spotifyButton {
 	height:80px;
