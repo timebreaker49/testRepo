@@ -20,7 +20,6 @@ $(document).ready(function() {
 
     spotifyAuthenticated();
 
-$('searchbarrow').show();
 })
 
 
@@ -140,6 +139,8 @@ var spotifyAuthenticated = function() {
         $('#spotify').empty();
         localStorage.setItem('token', _token);
         console.log(_token);
+        
+$('searchbarrow').show();
     }
 }
 
